@@ -67,7 +67,7 @@ async def set_capture_parameters():
         <General>
             <Capture_Time>20</Capture_Time>  <!-- Durée de la capture en secondes -->
             <Frequency>120</Frequency>  <!-- Fréquence d'acquisition -->
-        </General>
+        </General>s
     </QTM_Settings>"""
 
     print("📡 Envoi des paramètres de capture à QTM...")
