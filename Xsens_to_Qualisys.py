@@ -215,19 +215,17 @@ async def main():
         key = keyboard.read_event().name  # Attente d'une touche
         if key == "r":
 
-            # Vérifier l'état des capteurs avant de lancer QTM
-            # Hypothèse : `.isRecording()` existe
-            start_xsens_recording()
-            await start_streaming()
+            start_xsens_recording()  # Lance les IMUs
+            await start_streaming()  # Lance le streaming
             print("✅ Enregistrement et streaming démarrés.")
 
         elif key == "s":
-            stop_xsens_recording()
-            await stop_streaming()
+            stop_xsens_recording()  # Arrête les IMUs
+            await stop_streaming()  # Arrête le streaming
             print("✅ Enregistrement et streaming arrêtés.")
             break
 
-    # Fermeture propre
+    # Fermeture propre de tout les programmes (Dé-synchronisation, déconnexion, etc.)
     qtm_connection.disconnect()
     print("✅ Déconnecté de QTM.")
     xdpc_handler.manager().stopSync()
